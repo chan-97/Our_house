@@ -1,0 +1,6 @@
+@import '../styles/mixin';
+
+.signin-page {
+  @include setFlex(center, null, null);
+  height: 100%;
+}

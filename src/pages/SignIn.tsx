@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
+import './SignIn.scss';
 
 export const SignIn: FC = () => {
-  return <div>SignIn page</div>;
+  return <main className="signin-page">SignIn page</main>;
 };
