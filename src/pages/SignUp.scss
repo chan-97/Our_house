@@ -1,0 +1,60 @@
+@import '../styles/mixin';
+@import '../styles/variable';
+
+.signup {
+  height: 100%;
+  padding: 1.5rem 1.5rem 0;
+
+  &__content {
+    @include setFlex(center, center, column);
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 6rem 0;
+  }
+
+  &__title {
+    width: 100%;
+    color: $dark-color-gray;
+    font-size: 2rem;
+  }
+
+  &__sns {
+    width: 100%;
+    margin: 3rem 0;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #ededed;
+  }
+
+  &__sns-text {
+    margin-bottom: 1.5rem;
+    color: $basic-color-gray;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  &__sns-icon {
+    text-align: center;
+  }
+
+  &__bottom-message {
+    margin-top: 3rem;
+    text-align: center;
+    color: $dark-color-gray;
+    font-size: 1.5rem;
+
+    a {
+      padding-left: 1rem;
+      text-decoration: underline;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &:visited {
+        color: $dark-color-gray;
+      }
+    }
+  }
+}

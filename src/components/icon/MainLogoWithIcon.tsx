@@ -1,13 +1,21 @@
 import React, { FC } from 'react';
 
-export const MainLogoWithIcon: FC = (): JSX.Element => {
+interface LogoSizeProps {
+  width?: number;
+  height?: number;
+}
+
+export const MainLogoWithIcon: FC<LogoSizeProps> = ({
+  width = 147,
+  height = 50,
+}: LogoSizeProps): JSX.Element => {
   return (
     <svg
-      width="147"
-      height="50"
+      width={width}
+      height={height}
       viewBox="0 0 147 50"
       preserveAspectRatio="xMidYMid meet"
-      className="css-a0jcra-OhouseLogo ebon26m2"
+      // className="css-a0jcra-OhouseLogo ebon26m2"
     >
       <g fill="none" fillRule="evenodd">
         <path

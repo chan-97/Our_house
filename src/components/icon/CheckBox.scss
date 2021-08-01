@@ -1,0 +1,25 @@
+@import '../../styles/mixin';
+@import '../../styles/variable';
+
+.checkbox {
+  @include setFlex(center, center, null);
+  width: 4rem;
+  height: 4rem;
+
+  &__outline {
+    @include setFlex(center, center, null);
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid #ccc;
+    border-radius: $basic-border-radius;
+  }
+
+  &__outline--checked {
+    @include setFlex(center, center, null);
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid $main-color-sky;
+    border-radius: $basic-border-radius;
+    background-color: $main-color-sky;
+  }
+}

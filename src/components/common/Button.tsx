@@ -1,17 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEvent, CSSProperties } from 'react';
 import './Button.scss';
 
 interface ButtonProps {
   text: string;
-  individualStyle?: Record<string, unknown>;
+  buttonStyle?: string;
+  individualStyle?: CSSProperties;
+  buttonTask?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const MainButton: FC<ButtonProps> = ({
-  text,
+  buttonStyle,
   individualStyle,
+  text,
+  buttonTask,
 }: ButtonProps): JSX.Element => {
   return (
-    <button style={individualStyle} className="button">
+    <button
+      onClick={buttonTask}
+      style={individualStyle}
+      className={buttonStyle === 'primary' ? 'button-primary' : 'button'}
+    >
       {text}
     </button>
   );
