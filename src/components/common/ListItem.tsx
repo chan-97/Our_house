@@ -1,20 +1,25 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { DomainList, SignUpFunc } from '../../types/SignUp';
 import './ListItem.scss';
 
-interface ListItemProps {
-  item: string;
+interface ListItemProps<T> {
+  item: T;
+  signUpFormTask?: SignUpFunc;
   listHeight: string;
 }
 
-export const DomainListItem: FC<ListItemProps> = ({
+export const DomainListItem = <T extends DomainList>({
   item,
+  signUpFormTask,
   listHeight,
-}: ListItemProps): JSX.Element => {
+}: ListItemProps<T>): JSX.Element => {
   return (
-    <li className="list-item" style={{ height: listHeight }}>
-      {item}
+    <li
+      onClick={() => signUpFormTask?.handleSelectDomain(item.id, item.domain)}
+      className="list-item"
+      style={{ height: listHeight }}
+    >
+      {item.domain}
     </li>
   );
 };
-
-// 기본 스타일 여기서 지정, height랑 text 만 받기

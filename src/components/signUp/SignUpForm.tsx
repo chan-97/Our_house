@@ -7,22 +7,9 @@ import './SignUpForm.scss';
 
 export const SignUpForm: FC = (): JSX.Element => {
   const [toggleAuthBox, setToggleAuthBox] = useState<boolean>(false);
-  const [signUpForm, signUpFormTask] = useSignUp();
+  const [signUpState, signUpFormTask] = useSignUp();
 
-  const domainList: string[] = [
-    'naver.com',
-    'hanmail.net',
-    'daum.net',
-    'gmail.com',
-    'nate.com',
-    'hotmail.com',
-    'outlook.com',
-    'icloud.com',
-    '직접입력',
-  ];
-
-  const authEmail = (e: MouseEvent<HTMLButtonElement>): void => {
-    e.preventDefault();
+  const authEmail = (): void => {
     setToggleAuthBox(!toggleAuthBox);
   };
 
@@ -33,7 +20,7 @@ export const SignUpForm: FC = (): JSX.Element => {
         <div className="signup-form__input-box input-box--flex">
           <CommonInput
             name="emailName"
-            value={signUpForm.emailName}
+            value={signUpState.signUpForm.emailName}
             signUpFormTask={signUpFormTask}
             placeholder="이메일"
             individualStyle={{
@@ -44,7 +31,11 @@ export const SignUpForm: FC = (): JSX.Element => {
           <div className="email__separator">@</div>
           <CommonSelect
             type="domain"
-            list={domainList}
+            list={signUpState.signUpForm.domainList}
+            domainValue={signUpState.signUpForm.domainName}
+            domainDisabled={signUpState.domainDisabled}
+            domainInputRef={signUpState.domainInputRef}
+            signUpFormTask={signUpFormTask}
             listHeight="3rem"
             individualStyle={{
               width: 'calc((100% - 2rem) / 2)',
@@ -57,6 +48,10 @@ export const SignUpForm: FC = (): JSX.Element => {
           individualStyle={{ marginTop: '1rem' }}
           text="이메일 인증하기"
           buttonTask={authEmail}
+          buttonDisabled={
+            !signUpState.signUpForm.emailName &&
+            !signUpState.signUpForm.domainName
+          }
         />
         {toggleAuthBox && (
           <div className="email-code">
@@ -72,15 +67,23 @@ export const SignUpForm: FC = (): JSX.Element => {
           영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.
         </div>
         <CommonInput
+          name="password"
+          value={signUpState.signUpForm.password}
+          signUpFormTask={signUpFormTask}
           individualStyle={{ width: '100%' }}
           placeholder="비밀번호"
+          type="password"
         />
       </div>
       <div className="signup-form__list">
         <label className="signup-form__label">비밀번호 확인</label>
         <CommonInput
+          name="checkPassword"
+          value={signUpState.signUpForm.checkPassword}
+          signUpFormTask={signUpFormTask}
           individualStyle={{ width: '100%' }}
           placeholder="비밀번호 확인"
+          type="password"
         />
       </div>
       <div className="signup-form__list">
@@ -89,15 +92,24 @@ export const SignUpForm: FC = (): JSX.Element => {
           다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)
         </div>
         <CommonInput
+          name="nickName"
+          value={signUpState.signUpForm.nickName}
+          signUpFormTask={signUpFormTask}
           individualStyle={{ width: '100%' }}
           placeholder="별명 (2~15자)"
         />
       </div>
       <div className="signup-form__list">
         <label className="signup-form__label">약관동의</label>
-        <SignUpAcceptTermsBox />
+        <SignUpAcceptTermsBox
+          signUpForm={signUpState.signUpForm}
+          handleClickCheckBox={signUpFormTask.handleCheckbox}
+        />
       </div>
-      <MainButton text="회원가입하기" />
+      <MainButton
+        text="회원가입하기"
+        buttonTask={signUpFormTask.handleClickSignUp}
+      />
     </form>
   );
 };

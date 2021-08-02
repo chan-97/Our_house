@@ -1,6 +1,12 @@
+export interface DomainList {
+  domain: string;
+  id: number;
+}
+
 export interface SignUpForm {
   emailName: string;
   domainName: string;
+  domainList: DomainList[];
   password: string;
   checkPassword: string;
   nickName: string;
@@ -11,6 +17,10 @@ export interface SignUpForm {
   checkAboutNotification: boolean;
 }
 
-export interface UseSignUpFunc {
-  updateInputValue: (inputValue: string) => void;
+export interface SignUpFunc {
+  handleInput: (name: string, inputValue: string) => void;
+  handleSelectDomain: (domainId: number, domain: string) => void;
+  handleChangeDomain: (domain: string) => void;
+  handleCheckbox: (targetCheckbox: string) => void;
+  handleClickSignUp: () => void;
 }

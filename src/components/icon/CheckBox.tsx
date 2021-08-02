@@ -1,11 +1,18 @@
 import React, { FC } from 'react';
 import './CheckBox.scss';
 
-export const CheckBox: FC = (): JSX.Element => {
+interface CheckBoxProps {
+  checked: boolean;
+}
+
+export const CheckBox: FC<CheckBoxProps> = ({
+  checked,
+}: CheckBoxProps): JSX.Element => {
   return (
     <div className="checkbox">
-      <div className="checkbox__outline--checked">
-        {/* <div className={true ? "checkbox__outline--checked" : "checkbox__outline"}> */}
+      <div
+        className={checked ? 'checkbox__outline--checked' : 'checkbox__outline'}
+      >
         <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16">
           <path
             fill="#fff"

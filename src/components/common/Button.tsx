@@ -5,7 +5,8 @@ interface ButtonProps {
   text: string;
   buttonStyle?: string;
   individualStyle?: CSSProperties;
-  buttonTask?: (e: MouseEvent<HTMLButtonElement>) => void;
+  buttonTask: () => void;
+  buttonDisabled?: boolean;
 }
 
 export const MainButton: FC<ButtonProps> = ({
@@ -13,12 +14,29 @@ export const MainButton: FC<ButtonProps> = ({
   individualStyle,
   text,
   buttonTask,
+  buttonDisabled,
 }: ButtonProps): JSX.Element => {
+  const getButtonClassName = (buttonStyle?: string, disabled?: boolean) => {
+    if (buttonStyle === 'primary') {
+      if (disabled) {
+        return 'button-primary--disabled';
+      } else {
+        return 'button-primary';
+      }
+    } else {
+      return 'button';
+    }
+  };
+
   return (
     <button
-      onClick={buttonTask}
+      onClick={(e) => {
+        e.preventDefault();
+        buttonTask();
+      }}
+      disabled={buttonDisabled}
       style={individualStyle}
-      className={buttonStyle === 'primary' ? 'button-primary' : 'button'}
+      className={getButtonClassName(buttonStyle, buttonDisabled)}
     >
       {text}
     </button>
