@@ -1,0 +1,67 @@
+@import '../../styles/mixin';
+@import '../../styles//variable';
+
+.common-input {
+  min-height: 4rem;
+  padding: 0 1.5rem;
+  border-radius: $basic-border-radius;
+  border: 1px solid $light-color-gray;
+  background-color: #fff;
+  color: $dark-color-gray;
+  font-size: 1.5rem;
+
+  &::placeholder {
+    color: $light-color-gray;
+  }
+
+  &:hover {
+    background-color: #fafafa;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(53, 197, 240, 0.3);
+    z-index: 5;
+  }
+}
+
+.common-select {
+  position: relative;
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 0 1.5rem;
+    border-radius: $basic-border-radius;
+    border: 1px solid $light-color-gray;
+    background-color: #fff;
+    color: $dark-color-gray;
+    font-size: 1.5rem;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(53, 197, 240, 0.3);
+      z-index: 5;
+    }
+  }
+
+  &__icon-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include setFlex(null, center, null);
+    width: 2.5rem;
+    height: 100%;
+  }
+
+  &__list {
+    margin-top: 0.5rem;
+    border: 1px solid $light-color-gray;
+    border-radius: $basic-border-radius;
+    background-color: #fff;
+  }
+}

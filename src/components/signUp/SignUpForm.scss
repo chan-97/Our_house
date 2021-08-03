@@ -1,0 +1,55 @@
+@import '../../styles/mixin';
+@import '../../styles/variable';
+
+.signup-form {
+  width: 100%;
+
+  &__list {
+    padding-bottom: 3rem;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $label-color-gray;
+    line-height: 2.1rem;
+  }
+
+  .input-box--flex {
+    @include setFlex(space-between, center, null);
+  }
+
+  &__input-box {
+    height: 4rem;
+    font-size: 1.5rem;
+
+    .email__separator {
+      @include setFlex(center, center, null);
+      width: 2rem;
+      height: 100%;
+      color: $light-color-gray;
+    }
+  }
+
+  .email-code {
+    margin-top: 2rem;
+    padding: 2rem 1.6rem;
+    background-color: rgb(247, 248, 250);
+
+    &__guide {
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      color: $dark-color-gray;
+    }
+  }
+
+  &__list-guide {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: $basic-color-gray;
+    line-height: 1.4;
+  }
+}

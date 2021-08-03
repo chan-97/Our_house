@@ -1,0 +1,49 @@
+@import '../../styles/mixin';
+@import '../../styles//variable';
+
+.signup-accept {
+  border: 1px solid rgb(219, 219, 219);
+  padding: 0 1.5rem 0.5rem;
+
+  &__list--first {
+    @include setFlex(null, center, null);
+    height: 7rem;
+    border-bottom: 1px solid #ededed;
+  }
+
+  &__list-content {
+    @include setFlex(null, center, null);
+  }
+
+  &--all-agree {
+    color: $dark-color-gray;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  &__list {
+    @include setFlex(null, center, null);
+    height: 4rem;
+  }
+
+  &--checklist {
+    color: $dark-color-gray;
+    font-size: 1.4rem;
+
+    .checklist-required {
+      margin-left: 4px;
+      color: $main-color-sky;
+      font-size: 1.2rem;
+    }
+
+    .checklist-option {
+      margin-left: 4px;
+      color: $light-color-gray;
+      font-size: 1.2rem;
+    }
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,48 @@
+@import '../../styles/mixin';
+@import '../../styles/variable';
+
+.button {
+  @include setFlex(center, center, null);
+  width: 100%;
+  min-height: 5rem;
+  border: 1px solid $main-color-sky;
+  border-radius: $basic-border-radius;
+  font-size: 1.7rem;
+  font-weight: 700;
+  background-color: $main-color-sky;
+  color: #fff;
+
+  &:hover {
+    border-color: $button-hover-color;
+    background-color: $button-hover-color;
+  }
+}
+
+.button-primary {
+  @include setFlex(center, center, null);
+  width: 100%;
+  min-height: 4.5rem;
+  border: 1px solid $main-color-sky;
+  border-radius: $basic-border-radius;
+  font-size: 1.7rem;
+  font-weight: 700;
+  background-color: #fff;
+  color: $main-color-sky;
+
+  &:hover {
+    border-color: $button-hover-color;
+    background-color: #f7fdfe;
+  }
+
+  &--disabled {
+    @include setFlex(center, center, null);
+    width: 100%;
+    min-height: 4.5rem;
+    border: 1px solid #dadce0;
+    border-radius: $basic-border-radius;
+    font-size: 1.7rem;
+    font-weight: 700;
+    background-color: #f7f8fa;
+    color: #c2c8cc;
+  }
+}
