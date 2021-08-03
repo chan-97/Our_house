@@ -1,0 +1,118 @@
+@import '../../styles/mixin';
+
+.nav {
+  &__primary {
+    background-color: #fff;
+    border-bottom: 1px solid #ededed;
+    z-index: 502;
+    &__logo {
+      position: static;
+      margin-right: 3.5rem;
+      transform: none;
+      cursor: pointer;
+    }
+    &__content {
+      display: flex;
+      align-items: center;
+      padding: 1rem 6rem;
+      height: 8rem;
+      max-width: 1256px;
+      margin: 0 auto;
+    }
+    &__menu {
+      display: block;
+      &__item {
+        position: relative;
+        display: inline-block;
+        margin: 0.6rem 1rem 0;
+        padding: 1.4rem 0.6rem;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        font-weight: 700;
+        color: #424242;
+        cursor: pointer;
+        &:hover {
+          color: #35c5f0;
+        }
+      }
+      &__item--focused {
+        color: #35c5f0;
+      }
+    }
+    &__login {
+      display: inline-block;
+      margin: 2rem -0.9rem 1.6rem -0.7rem;
+      margin-left: auto;
+      &__item {
+        position: relative;
+        display: inline-block;
+        margin: 0 0.9rem 0 0.8rem;
+        padding: 0.2rem;
+        color: #757575;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          color: #35c5f0;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0.6rem;
+          left: 100%;
+          bottom: 0.3rem;
+          margin-left: 0.8rem;
+          border-right: 1px solid #757575;
+        }
+        &:last-child:after {
+          content: none;
+        }
+      }
+    }
+  }
+  &__secondary {
+    background-color: #fff;
+    border-bottom: 1px solid #ededed;
+    z-index: 501;
+    &__content {
+      min-height: 4.9rem;
+      max-width: 1256px;
+      margin: 0 auto;
+    }
+    &__menu {
+      padding: 0 0 0 6rem;
+      margin: 0 0.8rem 0 -1.2rem;
+      text-align: left;
+      &__item {
+        font-size: 1.5rem;
+        line-height: 2.3rem;
+        margin: 0.8rem 0.4rem;
+        padding: 0.6rem 0.8rem 0.4rem;
+        color: #424242;
+        position: relative;
+        display: inline-block;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover {
+          color: #35c5f0;
+        }
+      }
+      &__item--active {
+        color: #35c5f0;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 100%;
+          height: 0.2rem;
+          margin: 6px -4px 0;
+          background-color: #35c5f0;
+        }
+      }
+    }
+  }
+}
